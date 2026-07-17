@@ -1,0 +1,16 @@
+**/node_modules
+**/dist
+**/.next
+**/.turbo
+**/.expo
+**/coverage
+**/*.log
+.git
+.github
+infra/compose/data
+infra/compose/backups
+**/.env
+**/.env.*
+!**/.env.example
+apps/mobile/ios
+apps/mobile/android

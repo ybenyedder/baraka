@@ -1,0 +1,36 @@
+{
+  "name": "@baraka/db",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Schéma Drizzle, migrations et seed — source de vérité de la base de données.",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./schema": "./src/schema/index.ts",
+    "./client": "./src/client.ts"
+  },
+  "scripts": {
+    "generate": "drizzle-kit generate && node scripts/fix-geo.mjs",
+    "migrate": "tsx src/migrate-cli.ts",
+    "push": "drizzle-kit push",
+    "studio": "drizzle-kit studio",
+    "seed": "tsx src/seed.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "eslint . --max-warnings=0",
+    "clean": "rm -rf dist .turbo"
+  },
+  "dependencies": {
+    "@baraka/shared": "workspace:*",
+    "drizzle-orm": "^0.38.3",
+    "postgres": "^3.4.5"
+  },
+  "devDependencies": {
+    "@baraka/config": "workspace:*",
+    "drizzle-kit": "^0.30.1",
+    "eslint": "^9.17.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}

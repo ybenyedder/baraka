@@ -1,0 +1,44 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Palette Baraka (look TGTG) */
+  --color-pine: #005248; /* vert sapin — titres, header/footer, sections sombres */
+  --color-cream: #fff7e9; /* fond de page */
+  --color-cream-deep: #faf1e2; /* sections alternées */
+  --color-yellow: #ffc42d; /* CTA, badges (texte pine dessus) */
+}
+
+/* `inline` : les utilitaires copient la chaîne var() — motif officiel next/font + Tailwind v4. */
+@theme inline {
+  --font-display: var(--font-baloo), var(--font-baloo-arabic), 'Noto Sans Arabic', system-ui,
+    sans-serif;
+  --font-sans: var(--font-nunito), 'Noto Sans Arabic', system-ui, -apple-system, 'Segoe UI', Roboto,
+    sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: var(--color-cream);
+  color: #1a1a1a;
+  font-family: var(--font-sans);
+}
+
+/* En RTL, on mire les icônes directionnelles marquées .dir-icon. */
+[dir='rtl'] .dir-icon {
+  transform: scaleX(-1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

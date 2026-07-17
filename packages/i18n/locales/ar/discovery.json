@@ -1,0 +1,58 @@
+{
+  "title": "سلال قريبة منك",
+  "searchPlaceholder": "مخبزة، مطعم، حانوت…",
+  "filters": {
+    "title": "الفلاتر",
+    "category": "الصنف",
+    "dietary": "نظام غذائي",
+    "pickupTime": "وقت الاستلام",
+    "distance": "المسافة",
+    "apply": "طبّق",
+    "reset": "صفّر"
+  },
+  "bag": {
+    "available": "{count, plural, =0 {تكمّلت} one {سلّة وحدة باقية} two {سلّتين باقيين} few {# سلال باقية} many {# سلّة باقية} other {# سلّة باقية}}",
+    "soldOut": "تكمّلت",
+    "pickupWindow": "استلم بين {start} و {end}",
+    "worth": "قيمتها {value}",
+    "collect": "استلمت سلّتي"
+  },
+  "empty": "ما فماش سلال متوفرة في هاذي المنطقة توّا.",
+  "categories": {
+    "meals": "أكلات",
+    "bakery_pastry": "مخبزة ومحلويات",
+    "groceries": "حوانت",
+    "cafe": "قهوة",
+    "hotel_buffet": "نزل وبوفي",
+    "other": "أخرى"
+  },
+  "sections": {
+    "recommended": "مقترحة لك",
+    "endingSoon": "أنقذها الآن",
+    "nearby": "بالقرب منك"
+  },
+  "location": {
+    "title": "موقعك",
+    "useMine": "استخدام موقعي",
+    "cities": "المدن",
+    "radius": "نطاق البحث",
+    "done": "عرض السلال",
+    "mine": "موقعي"
+  },
+  "pickupNow": "الاستلام الآن",
+  "viewList": "قائمة",
+  "viewMap": "خريطة",
+  "expectTitle": "ماذا تتوقع",
+  "addressTitle": "العنوان",
+  "openInMaps": "فتح في الخرائط",
+  "reviews": "{count, plural, =0 {لا مراجعات} one {# مراجعة} other {# مراجعة}}",
+  "dietary": {
+    "vegetarian": "نباتي",
+    "vegan": "نباتي صرف",
+    "halal": "حلال",
+    "gluten_free": "خالٍ من الغلوتين",
+    "lactose_free": "خالٍ من اللاكتوز",
+    "contains_nuts": "يحتوي مكسّرات",
+    "contains_seafood": "يحتوي مأكولات بحرية"
+  }
+}

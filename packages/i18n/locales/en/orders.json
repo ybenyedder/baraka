@@ -1,0 +1,48 @@
+{
+  "status": {
+    "pending_payment": "Awaiting payment",
+    "reserved": "Reserved",
+    "picked_up": "Collected",
+    "cancelled_user": "Cancelled by you",
+    "cancelled_store": "Cancelled by store",
+    "no_show": "Not collected",
+    "payment_failed": "Payment failed"
+  },
+  "pickupCode": "Pickup code",
+  "checkout": {
+    "title": "Checkout",
+    "payAtPickup": "Pay at pickup (cash)",
+    "payOnline": "Pay online",
+    "total": "Total",
+    "useCredit": "Use my credit",
+    "reserve": "Confirm reservation",
+    "quantity": "Quantity",
+    "savings": "You save {value}",
+    "loginFirst": "Log in to reserve"
+  },
+  "cancel": {
+    "title": "Cancel order",
+    "confirm": "Confirm cancellation",
+    "tooLate": "Too late to cancel (less than {hours}h before pickup).",
+    "refunded": "You'll be refunded within a few days."
+  },
+  "reserveSuccess": "Bag reserved! Show your code to the store.",
+  "history": "History",
+  "upcoming": "Upcoming",
+  "empty": {
+    "upcoming": "No upcoming orders.",
+    "history": "Your history is empty."
+  },
+  "discoverCta": "Discover bags",
+  "detail": {
+    "collect": "I picked it up",
+    "cancel": "Cancel order",
+    "review": "Leave a review",
+    "backToList": "See my orders"
+  },
+  "review": {
+    "rateHint": "Please pick a rating.",
+    "commentPlaceholder": "Add a comment (optional)"
+  },
+  "title": "My orders"
+}

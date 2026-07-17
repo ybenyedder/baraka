@@ -1,0 +1,40 @@
+{
+  "name": "baraka",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Baraka — marketplace anti-gaspillage alimentaire (paniers surprise d'invendus). Web + iOS + Android, auto-hébergé.",
+  "author": "Baya Ben Yedder <bayabenyedderpro@gmail.com>",
+  "license": "UNLICENSED",
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,yml,yaml}\"",
+    "db:generate": "pnpm --filter @baraka/db generate",
+    "db:migrate": "pnpm --filter @baraka/db migrate",
+    "db:seed": "pnpm --filter @baraka/db seed",
+    "db:studio": "pnpm --filter @baraka/db studio",
+    "clean": "turbo run clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "prettier": "^3.3.3",
+    "turbo": "^2.3.3",
+    "typescript": "^5.6.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "react": "18.3.1",
+      "react-dom": "18.3.1",
+      "@types/react": "18.3.12",
+      "@types/react-dom": "18.3.1"
+    }
+  }
+}

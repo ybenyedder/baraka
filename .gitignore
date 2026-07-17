@@ -1,0 +1,48 @@
+# Dépendances
+node_modules/
+.pnpm-store/
+
+# Builds
+dist/
+build/
+.next/
+out/
+.turbo/
+*.tsbuildinfo
+
+# Expo / React Native
+.expo/
+*.orig.*
+web-build/
+apps/mobile/ios/
+apps/mobile/android/
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# Données locales & uploads
+/data/
+apps/api/data/
+infra/compose/data/
+infra/compose/backups/
+
+# Artefacts générés
+apps/api/openapi.json
+
+# Logs & couverture
+*.log
+npm-debug.log*
+coverage/
+
+# OS / éditeurs
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json

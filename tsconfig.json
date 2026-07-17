@@ -1,0 +1,9 @@
+{
+  "//": "Ancre éditeur. Chaque package/app possède son propre tsconfig qui étend @baraka/config et est typecheck séparément via turbo.",
+  "extends": "./packages/config/tsconfig/base.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": [],
+  "exclude": ["node_modules", "dist", ".next", ".expo"]
+}

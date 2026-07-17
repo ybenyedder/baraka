@@ -1,0 +1,4 @@
+ALTER TABLE "users" ADD CONSTRAINT "users_referred_by_user_id_users_id_fk" FOREIGN KEY ("referred_by_user_id") REFERENCES "public"."users"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
+CREATE UNIQUE INDEX "payouts_merchant_period_unique" ON "payouts" USING btree ("merchant_id","period_start","period_end");--> statement-breakpoint
+ALTER TABLE "bag_instances" ADD CONSTRAINT "bag_instances_qty_nonneg" CHECK ("bag_instances"."quantity_reserved" >= 0 AND "bag_instances"."quantity_sold" >= 0);--> statement-breakpoint
+ALTER TABLE "bag_instances" ADD CONSTRAINT "bag_instances_qty_bounded" CHECK ("bag_instances"."quantity_reserved" + "bag_instances"."quantity_sold" <= "bag_instances"."quantity_total");

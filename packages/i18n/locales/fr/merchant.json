@@ -1,0 +1,35 @@
+{
+  "dashboard": {
+    "title": "Espace commerçant",
+    "backToCustomer": "← Espace client"
+  },
+  "today": {
+    "title": "Aujourd'hui",
+    "reservations": "{count, plural, =0 {Aucune réservation} one {# réservation} other {# réservations}}",
+    "validate": "Valider un retrait"
+  },
+  "listings": {
+    "title": "Mes paniers",
+    "create": "Créer un panier",
+    "schedule": "Planning hebdomadaire",
+    "quantity": "Quantité",
+    "price": "Prix",
+    "originalValue": "Valeur d'origine"
+  },
+  "validate": {
+    "title": "Valider le retrait",
+    "enterCode": "Saisir le code à 6 chiffres",
+    "success": "Retrait validé ✓",
+    "invalid": "Code invalide ou déjà utilisé"
+  },
+  "stats": {
+    "revenue": "Chiffre d'affaires",
+    "bagsSaved": "Paniers sauvés",
+    "rating": "Note moyenne",
+    "payouts": "Versements"
+  },
+  "onboarding": {
+    "title": "Devenir commerçant partenaire",
+    "pending": "Ton compte est en cours de validation par notre équipe."
+  }
+}

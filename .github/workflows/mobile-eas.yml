@@ -1,0 +1,108 @@
+name: Mobile (build APK/IPA via EAS)
+
+# Construit les binaires mobiles via EAS Build et les joint à une release GitHub.
+#   • preview     → Android APK + iOS IPA (distribution interne, sideload / ad-hoc)
+#   • production  → Android AAB + iOS IPA (stores)
+#
+# Secrets requis :
+#   EXPO_TOKEN   (OBLIGATOIRE) — jeton d'accès Expo : https://expo.dev/settings/access-tokens
+#
+# Setup one-shot (une seule fois, en local puis commit) :
+#   cd apps/mobile && eas init          # écrit extra.eas.projectId dans app.config.ts
+#   eas credentials                     # iOS : compte Apple Developer ; Android signé : keystore géré par EAS
+#
+# Déclenchement : manuel (Actions → Run workflow) OU automatique à la publication d'une release.
+
+on:
+  workflow_dispatch:
+    inputs:
+      profile:
+        description: Profil EAS
+        type: choice
+        options: [preview, production]
+        default: preview
+      platform:
+        description: Plateforme
+        type: choice
+        options: [all, android, ios]
+        default: all
+      release_tag:
+        description: Tag de release où joindre les binaires (vide = ne pas joindre)
+        type: string
+        default: ''
+  release:
+    types: [published]
+
+concurrency:
+  group: mobile-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # nécessaire pour joindre les binaires à la release
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install deps
+        run: pnpm install --frozen-lockfile
+
+      - uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Résoudre les paramètres
+        id: p
+        run: |
+          if [ "${{ github.event_name }}" = "release" ]; then
+            {
+              echo "profile=preview"
+              echo "platform=all"
+              echo "tag=${{ github.event.release.tag_name }}"
+            } >> "$GITHUB_OUTPUT"
+          else
+            {
+              echo "profile=${{ inputs.profile }}"
+              echo "platform=${{ inputs.platform }}"
+              echo "tag=${{ inputs.release_tag }}"
+            } >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build EAS + téléchargement des artefacts
+        working-directory: apps/mobile
+        run: |
+          set -euo pipefail
+          eas build --non-interactive --json \
+            --profile "${{ steps.p.outputs.profile }}" \
+            --platform "${{ steps.p.outputs.platform }}" > builds.json
+          mkdir -p artifacts
+          for url in $(jq -r '.[] | (.artifacts.applicationArchiveUrl // .artifacts.buildUrl) // empty' builds.json); do
+            fname="$(basename "${url%%\?*}")"
+            echo "→ $fname"
+            curl -fsSL "$url" -o "artifacts/$fname"
+          done
+          ls -la artifacts
+
+      - name: Joindre les binaires à la release GitHub
+        if: steps.p.outputs.tag != ''
+        working-directory: apps/mobile
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload "${{ steps.p.outputs.tag }}" artifacts/* --clobber
+
+      - name: Publier aussi comme artefacts du run
+        uses: actions/upload-artifact@v4
+        with:
+          name: mobile-${{ steps.p.outputs.profile }}
+          path: apps/mobile/artifacts/*
+          if-no-files-found: warn

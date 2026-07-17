@@ -1,0 +1,84 @@
+name: Mobile Android APK (runner, sans Expo)
+
+# Construit un APK Android entièrement sur le runner GitHub (expo prebuild + gradle),
+# SANS compte Expo ni EAS — seul le GITHUB_TOKEN est nécessaire. L'APK est signé avec
+# le keystore debug par défaut d'Expo (installable en sideload / distribution interne).
+# Pour un APK signé de release (Play Store), utiliser plutôt le workflow EAS.
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Tag de release où joindre l'APK (vide = ne pas joindre)
+        type: string
+        default: v0.2.0
+      api_url:
+        description: "URL de l'API intégrée dans l'APK (EXPO_PUBLIC_API_URL), ex http://192.168.1.46:3001"
+        type: string
+        default: ''
+  release:
+    types: [published]
+
+concurrency:
+  group: mobile-apk-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # pour joindre l'APK à la release
+    env:
+      # Intégré au build (prebuild + bundle). Vide → repli sur http://localhost:3001.
+      EXPO_PUBLIC_API_URL: ${{ inputs.api_url || vars.MOBILE_API_URL }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: android-actions/setup-android@v3
+
+      - name: Install deps
+        run: pnpm install --frozen-lockfile
+
+      - name: Prebuild Android (autolinking natif)
+        working-directory: apps/mobile
+        run: npx expo prebuild --platform android --no-install
+
+      - name: Gradle assembleRelease
+        working-directory: apps/mobile/android
+        run: ./gradlew assembleRelease --no-daemon -x lint
+
+      - name: Récupérer et nommer l'APK
+        id: apk
+        working-directory: apps/mobile
+        run: |
+          set -euo pipefail
+          TAG="${{ github.event.inputs.release_tag || github.event.release.tag_name || 'dev' }}"
+          mkdir -p out
+          cp android/app/build/outputs/apk/release/app-release.apk "out/baraka-${TAG}.apk"
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          ls -la out
+
+      - name: Joindre l'APK à la release
+        if: ${{ (github.event.inputs.release_tag || github.event.release.tag_name) != '' }}
+        working-directory: apps/mobile
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload "${{ steps.apk.outputs.tag }}" out/*.apk --clobber
+
+      - name: Publier aussi comme artefact du run
+        uses: actions/upload-artifact@v4
+        with:
+          name: baraka-apk
+          path: apps/mobile/out/*.apk
+          if-no-files-found: error

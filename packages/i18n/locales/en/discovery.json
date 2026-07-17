@@ -1,0 +1,58 @@
+{
+  "title": "Bags near you",
+  "searchPlaceholder": "Bakery, restaurant, grocery…",
+  "filters": {
+    "title": "Filters",
+    "category": "Category",
+    "dietary": "Dietary",
+    "pickupTime": "Pickup time",
+    "distance": "Distance",
+    "apply": "Apply",
+    "reset": "Reset"
+  },
+  "bag": {
+    "available": "{count, plural, =0 {Sold out} one {# bag left} other {# bags left}}",
+    "soldOut": "Sold out",
+    "pickupWindow": "Collect between {start} and {end}",
+    "worth": "Worth {value}",
+    "collect": "I've collected my bag"
+  },
+  "empty": "No bags available in this area yet.",
+  "categories": {
+    "meals": "Meals",
+    "bakery_pastry": "Bakery & pastry",
+    "groceries": "Groceries",
+    "cafe": "Café",
+    "hotel_buffet": "Hotel & buffet",
+    "other": "Other"
+  },
+  "sections": {
+    "recommended": "Recommended for you",
+    "endingSoon": "Save them now",
+    "nearby": "Near you"
+  },
+  "location": {
+    "title": "Your location",
+    "useMine": "Use my location",
+    "cities": "Cities",
+    "radius": "Search radius",
+    "done": "See bags",
+    "mine": "My location"
+  },
+  "pickupNow": "Collect now",
+  "viewList": "List",
+  "viewMap": "Map",
+  "expectTitle": "What to expect",
+  "addressTitle": "Address",
+  "openInMaps": "Open in Maps",
+  "reviews": "{count, plural, =0 {No reviews} one {# review} other {# reviews}}",
+  "dietary": {
+    "vegetarian": "Vegetarian",
+    "vegan": "Vegan",
+    "halal": "Halal",
+    "gluten_free": "Gluten-free",
+    "lactose_free": "Lactose-free",
+    "contains_nuts": "Contains nuts",
+    "contains_seafood": "Contains seafood"
+  }
+}

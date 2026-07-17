@@ -1,0 +1,207 @@
+{
+  "appName": "Baraka",
+  "tagline": "Sauve un panier, sauve la baraka.",
+  "actions": {
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "retry": "Réessayer",
+    "seeAll": "Tout voir",
+    "reserve": "Réserver",
+    "back": "Retour",
+    "next": "Suivant",
+    "close": "Fermer"
+  },
+  "nav": {
+    "discover": "Découvrir",
+    "browse": "Rechercher",
+    "favorites": "Favoris",
+    "orders": "Commandes",
+    "profile": "Profil"
+  },
+  "language": {
+    "title": "Langue",
+    "switch": "Changer de langue",
+    "rtlNotice": "Le passage à l'arabe redémarre l'application pour activer l'affichage de droite à gauche."
+  },
+  "distance": "{km} km",
+  "loading": "Chargement…",
+  "errorGeneric": "Une erreur est survenue. Réessaie.",
+  "landing": {
+    "nav": {
+      "how": "Comment ça marche",
+      "merchants": "Commerçants"
+    },
+    "hero": {
+      "subtitle": "Des commerçants près de chez toi vendent leurs invendus du jour en Paniers Surprise à petit prix. Bon pour toi, bon pour la planète.",
+      "ctaFind": "Trouver un panier",
+      "ctaPartner": "Devenir partenaire"
+    },
+    "stats": {
+      "title": "Ensemble contre le gaspillage alimentaire",
+      "bags": {
+        "value": "12 000+",
+        "label": "paniers sauvés"
+      },
+      "co2": {
+        "value": "30 t",
+        "label": "de CO₂e évitées"
+      },
+      "stores": {
+        "value": "150+",
+        "label": "commerces partenaires"
+      }
+    },
+    "how": {
+      "title": "Comment ça marche ?",
+      "step1": {
+        "title": "Découvre",
+        "text": "Parcours les commerces autour de toi et repère les Paniers Surprise du jour."
+      },
+      "step2": {
+        "title": "Réserve",
+        "text": "Réserve ton panier en quelques secondes, avant que tout le monde ne se serve."
+      },
+      "step3": {
+        "title": "Récupère",
+        "text": "Passe en boutique pendant le créneau indiqué et repars avec ta bonne surprise."
+      }
+    },
+    "bag": {
+      "badge": "Panier Surprise",
+      "title": "C’est quoi, un Panier Surprise ?",
+      "text": "Un assortiment d’invendus du jour — pains, viennoiseries, plats préparés, fruits et légumes — vendu à petit prix. Le contenu exact reste une surprise : c’est le jeu, et c’est ce qui sauve la nourriture.",
+      "cta": "Voir une boutique"
+    },
+    "merchant": {
+      "title": "Vous avez un commerce ?",
+      "text": "Transformez vos invendus en revenus, attirez de nouveaux clients et réduisez votre gaspillage. L’inscription est gratuite.",
+      "cta": "Rejoindre Baraka"
+    },
+    "app": {
+      "title": "Baraka, bientôt dans ta poche",
+      "text": "Réserve, suis tes commandes et reçois une notification quand ton panier est prêt — directement depuis l’application mobile.",
+      "soon": "Bientôt disponible sur"
+    }
+  },
+  "footer": {
+    "explore": "Explorer",
+    "legal": "Légal",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d’utilisation",
+    "deleteAccount": "Supprimer mon compte",
+    "copyright": "© {year} Baraka. Tous droits réservés."
+  },
+  "browse": {
+    "title": "Paniers surprise près de toi",
+    "subtitle": "Réserve un panier d’invendus et récupère-le aujourd’hui.",
+    "searchPlaceholder": "Boulangerie, café, plat…",
+    "search": "Rechercher",
+    "count": "{count} paniers disponibles",
+    "left": "Plus que {count}",
+    "today": "Aujourd’hui",
+    "empty": "Aucun panier pour cette recherche. Essaie une autre catégorie.",
+    "filters": {
+      "all": "Tout",
+      "bakery_pastry": "Boulangerie",
+      "meals": "Repas",
+      "groceries": "Épicerie",
+      "cafe": "Café",
+      "hotel_buffet": "Buffet"
+    }
+  },
+  "profile": {
+    "impact": {
+      "title": "Ton impact",
+      "bags": "paniers sauvés",
+      "co2": "CO₂ évité",
+      "saved": "économisé"
+    },
+    "referral": {
+      "title": "Ton code de parrainage",
+      "stats": "{invited} invité(s) · {rewarded} récompensé(s)"
+    },
+    "rows": {
+      "orders": "Mes commandes",
+      "language": "Langue",
+      "merchant": "Espace commerçant",
+      "signOut": "Se déconnecter",
+      "delete": "Supprimer mon compte"
+    }
+  },
+  "favorites": {
+    "emptyTitle": "Aucun favori",
+    "emptySubtitle": "Ajoute tes commerces préférés pour les retrouver ici."
+  },
+  "account": {
+    "login": "Se connecter",
+    "logout": "Se déconnecter",
+    "orders": "Mes commandes",
+    "merchant": "Espace commerçant",
+    "admin": "Administration",
+    "menu": "Menu"
+  },
+  "business": {
+    "hero": {
+      "badge": "Baraka Business",
+      "title": "Transformez vos invendus en revenus",
+      "text": "Chaque soir, des plats, du pain, des fruits partent à la poubelle. Vendez-les en Paniers Surprise à prix réduit : vous récupérez de la valeur, gagnez de nouveaux clients et réduisez votre gaspillage.",
+      "ctaJoin": "Devenir partenaire",
+      "ctaSpace": "Accéder à mon espace"
+    },
+    "benefits": {
+      "title": "Pourquoi rejoindre Baraka ?",
+      "revenue": {
+        "title": "Des revenus en plus",
+        "text": "Vos invendus du jour deviennent du chiffre d'affaires au lieu de finir à la poubelle."
+      },
+      "customers": {
+        "title": "De nouveaux clients",
+        "text": "Les habitants du quartier découvrent votre commerce en réservant un panier — et reviennent."
+      },
+      "zeroRisk": {
+        "title": "Zéro risque",
+        "text": "Inscription gratuite, pas de frais fixes ni d'engagement : une commission uniquement sur les ventes en ligne."
+      },
+      "impact": {
+        "title": "Un impact concret",
+        "text": "Chaque panier sauvé évite environ 2,5 kg de CO₂e — vos clients le voient, votre image aussi."
+      }
+    },
+    "how": {
+      "title": "Comment ça marche ?",
+      "step1": {
+        "title": "Créez vos paniers",
+        "text": "Décrivez vos Paniers Surprise (prix, contenu type) et définissez le planning hebdomadaire : la mise en vente est automatique."
+      },
+      "step2": {
+        "title": "Les clients réservent",
+        "text": "Vous suivez les réservations en temps réel depuis votre espace, sur ordinateur comme sur téléphone."
+      },
+      "step3": {
+        "title": "Validez le retrait",
+        "text": "Au comptoir, le client présente son code à 6 chiffres. Vous le saisissez, c'est encaissé — les ventes en ligne vous sont reversées par virement."
+      }
+    },
+    "band": {
+      "title": "Des conditions simples et transparentes",
+      "fee": {
+        "value": "0 DT",
+        "label": "de frais d'inscription et d'abonnement"
+      },
+      "commission": {
+        "value": "15 %",
+        "label": "de commission, uniquement sur les ventes en ligne"
+      },
+      "control": {
+        "value": "100 %",
+        "label": "de contrôle : quantités, prix et créneaux, ajustables chaque jour"
+      }
+    },
+    "cta": {
+      "title": "Prêt à sauver vos invendus ?",
+      "text": "Créez votre compte, envoyez votre candidature en deux minutes : notre équipe la valide rapidement.",
+      "button": "Créer mon compte partenaire"
+    }
+  }
+}

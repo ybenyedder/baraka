@@ -1,0 +1,35 @@
+{
+  "dashboard": {
+    "title": "فضاء التاجر",
+    "backToCustomer": "← فضاء الزبون"
+  },
+  "today": {
+    "title": "اليوم",
+    "reservations": "{count, plural, =0 {ما فماش حجوزات} one {# حجز} two {# حجوزات} few {# حجوزات} many {# حجز} other {# حجز}}",
+    "validate": "أكّد استلام"
+  },
+  "listings": {
+    "title": "سلالي",
+    "create": "زيد سلّة",
+    "schedule": "البرنامج الأسبوعي",
+    "quantity": "الكمية",
+    "price": "الثمن",
+    "originalValue": "القيمة الأصلية"
+  },
+  "validate": {
+    "title": "أكّد الاستلام",
+    "enterCode": "أدخل الكود متاع 6 أرقام",
+    "success": "تأكّد الاستلام ✓",
+    "invalid": "كود غالط ولا مستعمل"
+  },
+  "stats": {
+    "revenue": "رقم المعاملات",
+    "bagsSaved": "سلال تسلّكت",
+    "rating": "المعدل",
+    "payouts": "التحويلات"
+  },
+  "onboarding": {
+    "title": "ولّي شريك تاجر",
+    "pending": "حسابك في طور المراجعة من فريقنا."
+  }
+}

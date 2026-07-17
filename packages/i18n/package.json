@@ -1,0 +1,29 @@
+{
+  "name": "@baraka/i18n",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Locales fr/en/ar (ICU) partagées et helpers RTL.",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./config": "./src/config.ts",
+    "./locales/*": "./locales/*"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "lint": "eslint . --max-warnings=0",
+    "clean": "rm -rf dist .turbo"
+  },
+  "dependencies": {
+    "@baraka/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@baraka/config": "workspace:*",
+    "eslint": "^9.17.0",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  }
+}

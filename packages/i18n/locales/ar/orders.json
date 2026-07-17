@@ -1,0 +1,48 @@
+{
+  "status": {
+    "pending_payment": "في انتظار الخلاص",
+    "reserved": "محجوز",
+    "picked_up": "تسلّم",
+    "cancelled_user": "ألغيتها",
+    "cancelled_store": "ألغاها التاجر",
+    "no_show": "ما تسلّمش",
+    "payment_failed": "الخلاص فشل"
+  },
+  "pickupCode": "كود الاستلام",
+  "checkout": {
+    "title": "الخلاص",
+    "payAtPickup": "خلّص وقت الاستلام (كاش)",
+    "payOnline": "خلّص أونلاين",
+    "total": "المجموع",
+    "useCredit": "استعمل رصيدي",
+    "reserve": "أكّد الحجز",
+    "quantity": "الكمية",
+    "savings": "توفّر {value}",
+    "loginFirst": "سجّل الدخول للحجز"
+  },
+  "cancel": {
+    "title": "ألغي الطلب",
+    "confirm": "أكّد الإلغاء",
+    "tooLate": "فات الوقت باش تلغي (أقل من {hours} ساعات قبل الاستلام).",
+    "refunded": "باش يرجعولك فلوسك في ظرف أيام."
+  },
+  "reserveSuccess": "تحجزت السلّة! ورّي الكود للتاجر.",
+  "history": "التاريخ",
+  "upcoming": "الجاية",
+  "empty": {
+    "upcoming": "لا طلبات قادمة.",
+    "history": "سجلّك فارغ."
+  },
+  "discoverCta": "اكتشف السلال",
+  "detail": {
+    "collect": "لقد استلمتها",
+    "cancel": "إلغاء الطلب",
+    "review": "اترك مراجعة",
+    "backToList": "عرض طلباتي"
+  },
+  "review": {
+    "rateHint": "اختار عدد النجوم.",
+    "commentPlaceholder": "تعليق (اختياري)"
+  },
+  "title": "طلباتي"
+}

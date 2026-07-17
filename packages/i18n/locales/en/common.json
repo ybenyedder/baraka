@@ -1,0 +1,207 @@
+{
+  "appName": "Baraka",
+  "tagline": "Save a bag, save the baraka.",
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "retry": "Retry",
+    "seeAll": "See all",
+    "reserve": "Reserve",
+    "back": "Back",
+    "next": "Next",
+    "close": "Close"
+  },
+  "nav": {
+    "discover": "Discover",
+    "browse": "Search",
+    "favorites": "Favorites",
+    "orders": "Orders",
+    "profile": "Profile"
+  },
+  "language": {
+    "title": "Language",
+    "switch": "Change language",
+    "rtlNotice": "Switching to Arabic restarts the app to enable right-to-left layout."
+  },
+  "distance": "{km} km",
+  "loading": "Loading…",
+  "errorGeneric": "Something went wrong. Please try again.",
+  "landing": {
+    "nav": {
+      "how": "How it works",
+      "merchants": "For businesses"
+    },
+    "hero": {
+      "subtitle": "Shops near you sell their unsold food of the day as low-price Surprise Bags. Good for you, good for the planet.",
+      "ctaFind": "Find a bag",
+      "ctaPartner": "Become a partner"
+    },
+    "stats": {
+      "title": "Together against food waste",
+      "bags": {
+        "value": "12,000+",
+        "label": "bags saved"
+      },
+      "co2": {
+        "value": "30 t",
+        "label": "of CO₂e avoided"
+      },
+      "stores": {
+        "value": "150+",
+        "label": "partner shops"
+      }
+    },
+    "how": {
+      "title": "How does it work?",
+      "step1": {
+        "title": "Discover",
+        "text": "Browse the shops around you and spot today’s Surprise Bags."
+      },
+      "step2": {
+        "title": "Reserve",
+        "text": "Book your bag in seconds, before everyone else grabs theirs."
+      },
+      "step3": {
+        "title": "Pick up",
+        "text": "Drop by the shop during the pickup window and leave with your happy surprise."
+      }
+    },
+    "bag": {
+      "badge": "Surprise Bag",
+      "title": "What’s a Surprise Bag?",
+      "text": "An assortment of the day’s unsold food — breads, pastries, prepared meals, fruit and veg — sold at a small price. The exact contents stay a surprise: that’s the fun, and that’s what saves the food.",
+      "cta": "See a shop"
+    },
+    "merchant": {
+      "title": "Run a food business?",
+      "text": "Turn your surplus into revenue, reach new customers and cut your waste. Signing up is free.",
+      "cta": "Join Baraka"
+    },
+    "app": {
+      "title": "Baraka, soon in your pocket",
+      "text": "Reserve, track your orders and get notified when your bag is ready — straight from the mobile app.",
+      "soon": "Coming soon on"
+    }
+  },
+  "footer": {
+    "explore": "Explore",
+    "legal": "Legal",
+    "privacy": "Privacy policy",
+    "terms": "Terms of use",
+    "deleteAccount": "Delete my account",
+    "copyright": "© {year} Baraka. All rights reserved."
+  },
+  "browse": {
+    "title": "Surprise bags near you",
+    "subtitle": "Reserve a bag of unsold food and pick it up today.",
+    "searchPlaceholder": "Bakery, café, meal…",
+    "search": "Search",
+    "count": "{count} bags available",
+    "left": "{count} left",
+    "today": "Today",
+    "empty": "No bags for this search. Try another category.",
+    "filters": {
+      "all": "All",
+      "bakery_pastry": "Bakery",
+      "meals": "Meals",
+      "groceries": "Groceries",
+      "cafe": "Café",
+      "hotel_buffet": "Buffet"
+    }
+  },
+  "profile": {
+    "impact": {
+      "title": "Your impact",
+      "bags": "bags saved",
+      "co2": "CO₂ avoided",
+      "saved": "saved"
+    },
+    "referral": {
+      "title": "Your referral code",
+      "stats": "{invited} invited · {rewarded} rewarded"
+    },
+    "rows": {
+      "orders": "My orders",
+      "language": "Language",
+      "merchant": "Merchant space",
+      "signOut": "Sign out",
+      "delete": "Delete my account"
+    }
+  },
+  "favorites": {
+    "emptyTitle": "No favourites yet",
+    "emptySubtitle": "Add your favourite shops to find them here."
+  },
+  "account": {
+    "login": "Log in",
+    "logout": "Log out",
+    "orders": "My orders",
+    "merchant": "Merchant space",
+    "admin": "Admin",
+    "menu": "Menu"
+  },
+  "business": {
+    "hero": {
+      "badge": "Baraka Business",
+      "title": "Turn your surplus food into revenue",
+      "text": "Every evening, meals, bread and produce go to waste. Sell them as discounted Surprise Bags: recover value, win new customers and cut your waste.",
+      "ctaJoin": "Become a partner",
+      "ctaSpace": "Go to my dashboard"
+    },
+    "benefits": {
+      "title": "Why join Baraka?",
+      "revenue": {
+        "title": "Extra revenue",
+        "text": "Today's unsold items become turnover instead of ending up in the bin."
+      },
+      "customers": {
+        "title": "New customers",
+        "text": "Neighbours discover your store by reserving a bag — and come back."
+      },
+      "zeroRisk": {
+        "title": "Zero risk",
+        "text": "Free sign-up, no fixed fees, no commitment: a commission only on online sales."
+      },
+      "impact": {
+        "title": "Real impact",
+        "text": "Every bag saved avoids about 2.5 kg of CO₂e — your customers see it, and so does your brand."
+      }
+    },
+    "how": {
+      "title": "How it works",
+      "step1": {
+        "title": "Create your bags",
+        "text": "Describe your Surprise Bags (price, typical contents) and set the weekly schedule: they go on sale automatically."
+      },
+      "step2": {
+        "title": "Customers reserve",
+        "text": "Track reservations in real time from your dashboard, on desktop or phone."
+      },
+      "step3": {
+        "title": "Validate the pickup",
+        "text": "At the counter, the customer shows a 6-digit code. Type it in and it's done — online sales are paid out by bank transfer."
+      }
+    },
+    "band": {
+      "title": "Simple, transparent terms",
+      "fee": {
+        "value": "0 TND",
+        "label": "sign-up and subscription fees"
+      },
+      "commission": {
+        "value": "15%",
+        "label": "commission, only on online sales"
+      },
+      "control": {
+        "value": "100%",
+        "label": "control: quantities, prices and time slots, adjustable daily"
+      }
+    },
+    "cta": {
+      "title": "Ready to save your surplus?",
+      "text": "Create your account and send your application in two minutes — our team reviews it quickly.",
+      "button": "Create my partner account"
+    }
+  }
+}

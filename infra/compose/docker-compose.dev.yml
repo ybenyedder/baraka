@@ -1,0 +1,22 @@
+# Stack de développement local — uniquement la base PostGIS.
+# La prod (Pi ARM64) utilise infra/compose/docker-compose.yml.
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: baraka-db-dev
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-baraka}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-baraka_dev_password}
+      POSTGRES_DB: ${POSTGRES_DB:-baraka}
+    ports:
+      - '5432:5432'
+    volumes:
+      - baraka_db_dev:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER:-baraka} -d ${POSTGRES_DB:-baraka}']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  baraka_db_dev:

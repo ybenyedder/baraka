@@ -1,0 +1,35 @@
+{
+  "privacy": {
+    "title": "Privacy Policy",
+    "intro": "Baraka collects the minimum data necessary to provide the service: email, name, language, location (during use, to display nearby bags) and order history.",
+    "useHeading": "Use",
+    "useBody": "Your data is used to log you in, show you nearby bags, manage your reservations and send you pickup notifications. It is neither sold nor transferred to third parties.",
+    "paymentHeading": "Payment",
+    "paymentBody": "Online payments are processed by our provider (Konnect). Baraka never stores card numbers.",
+    "rightsHeading": "Your rights",
+    "rightsBody": "You can view, correct or delete your data at any time from the app (Profile → Delete my account) or by writing to privacy@baraka.tn.",
+    "lastUpdated": "Last updated: 2026."
+  },
+  "terms": {
+    "title": "Terms and Conditions of Use",
+    "intro": "Baraka connects merchants offering their unsold food as surprise bags with customers who wish to collect them at a reduced price.",
+    "reservationsHeading": "Reservations",
+    "reservationsBody": "A reservation constitutes a commitment to collect the bag during the indicated time slot. The exact contents of the bag are a surprise. Cancellations are possible up to 2 hours before the time slot.",
+    "paymentHeading": "Payment",
+    "paymentBody": "Payment is made at pickup (cash) or online. If the merchant cancels, any online payment is refunded in full.",
+    "liabilityHeading": "Liability",
+    "liabilityBody": "Merchants are responsible for the quality and food safety of the bags. Baraka acts as a technical intermediary.",
+    "lastUpdated": "Last updated: 2026."
+  },
+  "deleteAccount": {
+    "title": "Delete your Baraka account",
+    "intro": "You can delete your account and all your data at any time.",
+    "inAppHeading": "From the app",
+    "step1": "Open the \"Profile\" tab.",
+    "step2": "Scroll down to \"Delete my account\".",
+    "step3": "Confirm the deletion.",
+    "afterBody": "Deletion is immediate and permanent: your profile, your orders and your devices are erased. Certain billing data may be retained for the legally required period.",
+    "withoutAppHeading": "Without the app",
+    "withoutAppBody": "Write to privacy@baraka.tn from the email address associated with your account; we process the request within 30 days."
+  }
+}

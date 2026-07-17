@@ -1,0 +1,48 @@
+{
+  "status": {
+    "pending_payment": "En attente de paiement",
+    "reserved": "Réservé",
+    "picked_up": "Récupéré",
+    "cancelled_user": "Annulé par toi",
+    "cancelled_store": "Annulé par le commerçant",
+    "no_show": "Non récupéré",
+    "payment_failed": "Paiement échoué"
+  },
+  "pickupCode": "Code de retrait",
+  "checkout": {
+    "title": "Paiement",
+    "payAtPickup": "Payer au retrait (espèces)",
+    "payOnline": "Payer en ligne",
+    "total": "Total",
+    "useCredit": "Utiliser mes crédits",
+    "reserve": "Confirmer la réservation",
+    "quantity": "Quantité",
+    "savings": "Tu économises {value}",
+    "loginFirst": "Connecte-toi pour réserver"
+  },
+  "cancel": {
+    "title": "Annuler la commande",
+    "confirm": "Confirmer l'annulation",
+    "tooLate": "Trop tard pour annuler (moins de {hours} h avant le retrait).",
+    "refunded": "Tu seras remboursé sous quelques jours."
+  },
+  "reserveSuccess": "Panier réservé ! Présente ton code au commerçant.",
+  "history": "Historique",
+  "upcoming": "À venir",
+  "empty": {
+    "upcoming": "Aucune commande à venir.",
+    "history": "Ton historique est vide."
+  },
+  "discoverCta": "Découvrir des paniers",
+  "detail": {
+    "collect": "J'ai récupéré",
+    "cancel": "Annuler la commande",
+    "review": "Laisser un avis",
+    "backToList": "Voir mes commandes"
+  },
+  "review": {
+    "rateHint": "Choisis une note.",
+    "commentPlaceholder": "Un commentaire (facultatif)"
+  },
+  "title": "Mes commandes"
+}

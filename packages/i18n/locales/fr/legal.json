@@ -1,0 +1,35 @@
+{
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "intro": "Baraka collecte le minimum de données nécessaires au service : e-mail, nom, langue, position (pendant l’utilisation, pour afficher les paniers à proximité) et historique de commandes.",
+    "useHeading": "Utilisation",
+    "useBody": "Tes données servent à te connecter, te montrer les paniers proches, gérer tes réservations et t’envoyer des notifications de retrait. Elles ne sont ni vendues ni cédées à des tiers.",
+    "paymentHeading": "Paiement",
+    "paymentBody": "Les paiements en ligne sont traités par notre prestataire (Konnect). Baraka ne stocke jamais les numéros de carte.",
+    "rightsHeading": "Tes droits",
+    "rightsBody": "Tu peux consulter, corriger ou supprimer tes données à tout moment depuis l’application (Profil → Supprimer mon compte) ou en écrivant à privacy@baraka.tn.",
+    "lastUpdated": "Dernière mise à jour : 2026."
+  },
+  "terms": {
+    "title": "Conditions générales d’utilisation",
+    "intro": "Baraka met en relation des commerçants proposant leurs invendus alimentaires sous forme de paniers surprise et des clients souhaitant les récupérer à prix réduit.",
+    "reservationsHeading": "Réservations",
+    "reservationsBody": "Une réservation vaut engagement de retrait pendant le créneau indiqué. Le contenu exact du panier est une surprise. Les annulations sont possibles jusqu’à 2 h avant le créneau.",
+    "paymentHeading": "Paiement",
+    "paymentBody": "Le paiement se fait au retrait (espèces) ou en ligne. En cas d’annulation par le commerçant, tout paiement en ligne est intégralement remboursé.",
+    "liabilityHeading": "Responsabilité",
+    "liabilityBody": "Les commerçants sont responsables de la qualité et de la sécurité alimentaire des paniers. Baraka agit comme intermédiaire technique.",
+    "lastUpdated": "Dernière mise à jour : 2026."
+  },
+  "deleteAccount": {
+    "title": "Supprimer ton compte Baraka",
+    "intro": "Tu peux supprimer ton compte et toutes tes données à tout moment.",
+    "inAppHeading": "Depuis l’application",
+    "step1": "Ouvre l’onglet « Profil ».",
+    "step2": "Descends jusqu’à « Supprimer mon compte ».",
+    "step3": "Confirme la suppression.",
+    "afterBody": "La suppression est immédiate et définitive : ton profil, tes commandes et tes appareils sont effacés. Certaines données de facturation peuvent être conservées le temps légal requis.",
+    "withoutAppHeading": "Sans l’application",
+    "withoutAppBody": "Écris à privacy@baraka.tn depuis l’adresse e-mail de ton compte ; nous traitons la demande sous 30 jours."
+  }
+}

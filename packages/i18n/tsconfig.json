@@ -1,0 +1,10 @@
+{
+  "extends": "@baraka/config/tsconfig/node.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "rootDir": ".",
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*.ts", "locales/**/*.json"],
+  "exclude": ["node_modules", "dist"]
+}
