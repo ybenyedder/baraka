@@ -115,15 +115,9 @@ services:
       - api
       - web
 
-  cloudflared:
-    image: cloudflare/cloudflared:latest
-    <<: *restart
-    command: ['tunnel', '--no-autoupdate', 'run']
-    environment:
-      TUNNEL_TOKEN: ${CLOUDFLARE_TUNNEL_TOKEN}
-    mem_limit: 64m
-    depends_on:
-      - caddy
+  # cloudflared : le tunnel Cloudflare est géré séparément sur l'hôte (service
+  # systemd cloudflared avec token-file), qui pointe vers localhost:8080 (Caddy).
+  # Pas de conteneur cloudflared ici pour éviter un doublon en échec constant.
 
   uptime-kuma:
     image: louislam/uptime-kuma:1
