@@ -67,14 +67,9 @@ export function UpdateModal({ info, onClose }: { info: UpdateInfo; onClose: () =
           </View>
 
           <AppText variant="display">{t('update.title')}</AppText>
-          <AppText variant="subtitle">
-            {t('update.version', { version: info.version })}
-          </AppText>
+          <AppText variant="subtitle">{t('update.version', { version: info.version })}</AppText>
           {info.notes ? (
-            <ScrollView
-              style={{ maxHeight: 180 }}
-              showsVerticalScrollIndicator={false}
-            >
+            <ScrollView style={{ maxHeight: 180 }} showsVerticalScrollIndicator={false}>
               <AppText variant="caption" style={{ lineHeight: 18 }}>
                 {info.notes}
               </AppText>
@@ -85,7 +80,9 @@ export function UpdateModal({ info, onClose }: { info: UpdateInfo; onClose: () =
             </AppText>
           )}
 
-          {Platform.OS === 'android' && <AppText variant="caption">{t('update.installHint')}</AppText>}
+          {Platform.OS === 'android' && (
+            <AppText variant="caption">{t('update.installHint')}</AppText>
+          )}
 
           <PrimaryButton icon={Download} label={t('update.download')} onPress={openDownload} />
           <Pressable onPress={handleSkip} hitSlop={12} style={{ paddingVertical: 6 }}>
