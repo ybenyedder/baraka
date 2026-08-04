@@ -91,6 +91,8 @@ services:
       NODE_ENV: production
       NEXT_PUBLIC_API_URL: ${PUBLIC_API_URL}
       PORT: '3000'
+    ports:
+      - '3623:3000'
     mem_limit: 512m
     depends_on:
       - api
@@ -101,6 +103,8 @@ services:
     environment:
       DOMAIN: ${DOMAIN}
       API_DOMAIN: ${API_DOMAIN}
+    ports:
+      - '8080:80'
     volumes:
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
       - ./data/uploads:/srv/uploads:ro

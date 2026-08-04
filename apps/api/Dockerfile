@@ -20,7 +20,7 @@ RUN pnpm install --frozen-lockfile
 COPY --from=pruner /app/out/full/ .
 RUN pnpm --filter @baraka/api build
 # node_modules de prod auto-suffisant
-RUN pnpm --filter @baraka/api deploy --prod --legacy /prod/api
+RUN pnpm --filter @baraka/api deploy --prod /prod/api
 
 # ---- Runner ----
 FROM node:22-slim AS runner
