@@ -9,7 +9,7 @@ name: Mobile Android APK (runner, sans Expo)
 #   1. input `api_url` au déclenchement manuel, SINON
 #   2. variable de dépôt `MOBILE_API_URL` (Settings → Secrets and variables → Actions → Variables),
 #   3. à défaut http://localhost:3001 (inutilisable hors dev local).
-# En production, définir MOBILE_API_URL=https://c.baraka.webtvmedia.net (HTTPS requis).
+# En production, définir MOBILE_API_URL=https://apis.webtvmedia.net (HTTPS requis).
 
 on:
   workflow_dispatch:
@@ -19,7 +19,7 @@ on:
         type: string
         default: v1.0.0
       api_url:
-        description: "URL de l'API intégrée dans l'APK (EXPO_PUBLIC_API_URL), ex https://c.baraka.webtvmedia.net"
+        description: "URL de l'API intégrée dans l'APK (EXPO_PUBLIC_API_URL), ex https://apis.webtvmedia.net"
         type: string
         default: ''
   release:
