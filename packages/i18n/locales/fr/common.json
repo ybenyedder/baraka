@@ -27,6 +27,14 @@
   "distance": "{km} km",
   "loading": "Chargement…",
   "errorGeneric": "Une erreur est survenue. Réessaie.",
+  "update": {
+    "title": "Une nouvelle version est disponible",
+    "version": "Version {version}",
+    "text": "Une mise à jour est disponible pour profiter des dernières améliorations.",
+    "download": "Mettre à jour",
+    "later": "Plus tard",
+    "installHint": "Le téléchargement s’ouvre dans ton navigateur. Autorise l’installation si Android te le demande."
+  },
   "landing": {
     "nav": {
       "how": "Comment ça marche",
@@ -79,9 +87,12 @@
       "cta": "Rejoindre Baraka"
     },
     "app": {
-      "title": "Baraka, bientôt dans ta poche",
+      "title": "Baraka, dans ta poche",
       "text": "Réserve, suis tes commandes et reçois une notification quand ton panier est prêt — directement depuis l’application mobile.",
-      "soon": "Bientôt disponible sur"
+      "downloadHint": "Télécharge l’application Android",
+      "download": "Télécharger l’application",
+      "downloadVersion": "Télécharger (v{version})",
+      "downloadAria": "Télécharger l’application Baraka pour Android"
     }
   },
   "footer": {

@@ -11,6 +11,8 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { queryClient } from '@/lib/query';
 import { initI18n, detectDeviceLocale } from '@/lib/i18n';
 import { prefs, hydrateToken } from '@/lib/storage';
+import { checkForUpdate, type UpdateInfo } from '@/lib/updater';
+import { UpdateModal } from '@/components/UpdateModal';
 import { useSession } from '@/store/session';
 import { api, ApiError } from '@/lib/api';
 import { APP_FONTS } from '@/lib/fonts';
@@ -23,6 +25,7 @@ void SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [ready, setReady] = useState(false);
+  const [update, setUpdate] = useState<UpdateInfo | null>(null);
   const [fontsLoaded] = useFonts(APP_FONTS);
   const router = useRouter();
   const setSession = useSession((s) => s.setSession);
@@ -96,6 +99,18 @@ export default function RootLayout() {
     if (ready && fontsLoaded) void SplashScreen.hideAsync();
   }, [ready, fontsLoaded]);
 
+  // Vérifie les mises à jour GitHub Releases après le démarrage (avec un délai
+  // pour ne pas perturber le rendu initial). Silencieux en cas d'échec réseau.
+  useEffect(() => {
+    if (!ready) return;
+    const id = setTimeout(() => {
+      void checkForUpdate().then((info) => {
+        if (info) setUpdate(info);
+      });
+    }, 3000);
+    return () => clearTimeout(id);
+  }, [ready]);
+
   if (!ready || !fontsLoaded) return null;
 
   return (
@@ -110,6 +125,7 @@ export default function RootLayout() {
           <Stack.Screen name="(customer)" />
           <Stack.Screen name="(merchant)" />
         </Stack>
+        {update ? <UpdateModal info={update} onClose={() => setUpdate(null)} /> : null}
       </SafeAreaProvider>
     </QueryClientProvider>
   );

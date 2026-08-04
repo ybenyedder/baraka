@@ -4,6 +4,12 @@ name: Mobile Android APK (runner, sans Expo)
 # SANS compte Expo ni EAS — seul le GITHUB_TOKEN est nécessaire. L'APK est signé avec
 # le keystore debug par défaut d'Expo (installable en sideload / distribution interne).
 # Pour un APK signé de release (Play Store), utiliser plutôt le workflow EAS.
+#
+# URL de l'API intégrée au build (EXPO_PUBLIC_API_URL) :
+#   1. input `api_url` au déclenchement manuel, SINON
+#   2. variable de dépôt `MOBILE_API_URL` (Settings → Secrets and variables → Actions → Variables),
+#   3. à défaut http://localhost:3001 (inutilisable hors dev local).
+# En production, définir MOBILE_API_URL=https://c.baraka.webtvmedia.net (HTTPS requis).
 
 on:
   workflow_dispatch:
@@ -11,9 +17,9 @@ on:
       release_tag:
         description: Tag de release où joindre l'APK (vide = ne pas joindre)
         type: string
-        default: v0.2.0
+        default: v1.0.0
       api_url:
-        description: "URL de l'API intégrée dans l'APK (EXPO_PUBLIC_API_URL), ex http://192.168.1.46:3001"
+        description: "URL de l'API intégrée dans l'APK (EXPO_PUBLIC_API_URL), ex https://c.baraka.webtvmedia.net"
         type: string
         default: ''
   release:
