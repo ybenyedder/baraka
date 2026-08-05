@@ -21,7 +21,7 @@ const config: ExpoConfig = {
   name: 'Baraka',
   slug: 'baraka',
   scheme: 'baraka',
-  version: '1.0.0',
+  version: '1.0.1',
   orientation: 'portrait',
   // Design verrouillé en clair (pas de mode sombre dans cette refonte).
   userInterfaceStyle: 'light',

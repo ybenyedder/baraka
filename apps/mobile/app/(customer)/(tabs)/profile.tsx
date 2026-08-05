@@ -4,10 +4,11 @@ import { useRouter } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ShoppingBag, Globe, Store, LogOut, Trash2, X } from 'lucide-react-native';
+import { ShoppingBag, Globe, Store, LogOut, Trash2, X, UserCircle } from 'lucide-react-native';
 import { formatMoney, money, formatCo2e, type Currency } from '@baraka/shared';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { AppText } from '@/components/ui/AppText';
+import { PrimaryButton } from '@/components/ui/PrimaryButton';
 import { IconButton } from '@/components/ui/IconButton';
 import { StoreAvatar } from '@/components/StoreAvatar';
 import { SettingsRow } from '@/components/SettingsRow';
@@ -74,102 +75,156 @@ export default function Profile() {
           </View>
         </View>
 
-        {/* Bande impact */}
-        <View style={{ backgroundColor: colors.pine, borderRadius: radii.card, padding: 18 }}>
-          <AppText variant="label" color={colors.cream}>
-            {t('profile.impact.title')}
-          </AppText>
-          <View style={{ flexDirection: 'row', marginTop: 14 }}>
-            {[
-              { value: String(impact?.bagsSaved ?? 0), label: t('profile.impact.bags') },
-              { value: co2 ? `${co2.value}${co2.unit}` : '0g', label: t('profile.impact.co2') },
-              {
-                value: impact
-                  ? formatMoney(
-                      money(impact.moneySaved.amountMinor, impact.moneySaved.currency as Currency),
-                      bcp47,
-                    )
-                  : '—',
-                label: t('profile.impact.saved'),
-              },
-            ].map((s, i) => (
-              <View key={i} style={{ flex: 1, alignItems: 'center' }}>
-                <AppText weight="extrabold" color={colors.yellow} style={{ fontSize: 20 }}>
-                  {s.value}
-                </AppText>
-                <AppText
-                  variant="caption"
-                  color={colors.cream}
-                  style={{ textAlign: 'center', marginTop: 2 }}
-                >
-                  {s.label}
+        {!isAuth ? (
+          /* État invité : CTA connexion / inscription (browse-first). */
+          <View
+            style={{
+              backgroundColor: colors.white,
+              borderRadius: radii.card,
+              padding: 20,
+              gap: 14,
+            }}
+          >
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+              <UserCircle size={36} color={colors.pine} strokeWidth={2} />
+              <View style={{ flex: 1 }}>
+                <AppText variant="title">{ta('guest.signInTitle')}</AppText>
+                <AppText variant="caption" tone="muted">
+                  {ta('guest.signInText')}
                 </AppText>
               </View>
-            ))}
+            </View>
+            <PrimaryButton
+              label={ta('login.submit')}
+              onPress={() => router.push('/(auth)/login')}
+            />
+            <Pressable
+              onPress={() => router.push('/(auth)/register')}
+              hitSlop={8}
+              style={{ paddingVertical: 6 }}
+            >
+              <AppText variant="label" tone="muted" style={{ textAlign: 'center' }}>
+                {ta('login.noAccount')}{' '}
+                <AppText variant="label" tone="pine">
+                  {ta('register.submit')}
+                </AppText>
+              </AppText>
+            </Pressable>
           </View>
-        </View>
+        ) : (
+          <>
+            {/* Bande impact */}
+            <View style={{ backgroundColor: colors.pine, borderRadius: radii.card, padding: 18 }}>
+              <AppText variant="label" color={colors.cream}>
+                {t('profile.impact.title')}
+              </AppText>
+              <View style={{ flexDirection: 'row', marginTop: 14 }}>
+                {[
+                  { value: String(impact?.bagsSaved ?? 0), label: t('profile.impact.bags') },
+                  { value: co2 ? `${co2.value}${co2.unit}` : '0g', label: t('profile.impact.co2') },
+                  {
+                    value: impact
+                      ? formatMoney(
+                          money(
+                            impact.moneySaved.amountMinor,
+                            impact.moneySaved.currency as Currency,
+                          ),
+                          bcp47,
+                        )
+                      : '—',
+                    label: t('profile.impact.saved'),
+                  },
+                ].map((s, i) => (
+                  <View key={i} style={{ flex: 1, alignItems: 'center' }}>
+                    <AppText weight="extrabold" color={colors.yellow} style={{ fontSize: 20 }}>
+                      {s.value}
+                    </AppText>
+                    <AppText
+                      variant="caption"
+                      color={colors.cream}
+                      style={{ textAlign: 'center', marginTop: 2 }}
+                    >
+                      {s.label}
+                    </AppText>
+                  </View>
+                ))}
+              </View>
+            </View>
 
-        {/* Parrainage */}
-        {referral ? (
-          <View style={{ backgroundColor: colors.white, borderRadius: radii.card, padding: 16 }}>
-            <AppText variant="caption" tone="muted">
-              {t('profile.referral.title')}
-            </AppText>
-            <AppText variant="displayXl" style={{ letterSpacing: 3, marginTop: 4 }}>
-              {referral.code}
-            </AppText>
-            <AppText variant="caption" tone="muted" style={{ marginTop: 4 }}>
-              {t('profile.referral.stats', {
-                invited: referral.invited,
-                rewarded: referral.rewarded,
-              })}
-            </AppText>
-          </View>
-        ) : null}
+            {/* Parrainage */}
+            {referral ? (
+              <View
+                style={{ backgroundColor: colors.white, borderRadius: radii.card, padding: 16 }}
+              >
+                <AppText variant="caption" tone="muted">
+                  {t('profile.referral.title')}
+                </AppText>
+                <AppText variant="displayXl" style={{ letterSpacing: 3, marginTop: 4 }}>
+                  {referral.code}
+                </AppText>
+                <AppText variant="caption" tone="muted" style={{ marginTop: 4 }}>
+                  {t('profile.referral.stats', {
+                    invited: referral.invited,
+                    rewarded: referral.rewarded,
+                  })}
+                </AppText>
+              </View>
+            ) : null}
 
-        {/* Réglages */}
+            {/* Réglages */}
+            <View
+              style={{
+                backgroundColor: colors.white,
+                borderRadius: radii.card,
+                overflow: 'hidden',
+              }}
+            >
+              <SettingsRow
+                icon={ShoppingBag}
+                label={t('profile.rows.orders')}
+                onPress={() => router.push('/(customer)/(tabs)/orders')}
+              />
+              <View style={{ height: 1, backgroundColor: colors.border, marginLeft: 60 }} />
+              {user?.isMerchant ? (
+                <>
+                  <SettingsRow
+                    icon={Store}
+                    label={t('profile.rows.merchant')}
+                    onPress={() => {
+                      setMode('merchant');
+                      router.replace('/(merchant)/(tabs)');
+                    }}
+                  />
+                  <View style={{ height: 1, backgroundColor: colors.border, marginLeft: 60 }} />
+                </>
+              ) : null}
+              <SettingsRow
+                icon={LogOut}
+                label={t('profile.rows.signOut')}
+                onPress={() => {
+                  signOut();
+                  router.replace('/(customer)/(tabs)');
+                }}
+              />
+              <View style={{ height: 1, backgroundColor: colors.border, marginLeft: 60 }} />
+              <SettingsRow
+                icon={Trash2}
+                label={t('profile.rows.delete')}
+                tone="danger"
+                onPress={confirmDelete}
+              />
+            </View>
+          </>
+        )}
+
+        {/* Langue : toujours accessible, connecté ou non. */}
         <View
           style={{ backgroundColor: colors.white, borderRadius: radii.card, overflow: 'hidden' }}
         >
           <SettingsRow
-            icon={ShoppingBag}
-            label={t('profile.rows.orders')}
-            onPress={() => router.push('/(customer)/(tabs)/orders')}
-          />
-          <View style={{ height: 1, backgroundColor: colors.border, marginLeft: 60 }} />
-          <SettingsRow
             icon={Globe}
             label={t('profile.rows.language')}
             onPress={() => setLangOpen(true)}
-          />
-          {user?.isMerchant ? (
-            <>
-              <View style={{ height: 1, backgroundColor: colors.border, marginLeft: 60 }} />
-              <SettingsRow
-                icon={Store}
-                label={t('profile.rows.merchant')}
-                onPress={() => {
-                  setMode('merchant');
-                  router.replace('/(merchant)/(tabs)');
-                }}
-              />
-            </>
-          ) : null}
-          <View style={{ height: 1, backgroundColor: colors.border, marginLeft: 60 }} />
-          <SettingsRow
-            icon={LogOut}
-            label={t('profile.rows.signOut')}
-            onPress={() => {
-              signOut();
-              router.replace('/(auth)/welcome');
-            }}
-          />
-          <View style={{ height: 1, backgroundColor: colors.border, marginLeft: 60 }} />
-          <SettingsRow
-            icon={Trash2}
-            label={t('profile.rows.delete')}
-            tone="danger"
-            onPress={confirmDelete}
           />
         </View>
       </ScrollView>

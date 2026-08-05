@@ -12,11 +12,14 @@ interface SessionState {
   user: SessionUser | null;
   mode: AppMode;
   isAuthenticated: boolean;
+  /** ID de panier en attente de réservation (mémorisé avant redirection vers login). */
+  pendingCheckoutBag: string | null;
   setSession: (token: string, user: SessionUser) => void;
   /** Réhydrate la session au démarrage depuis le stockage (mode dégradé hors-ligne). */
   bootstrap: () => void;
   signOut: () => void;
   setMode: (mode: AppMode) => void;
+  setPendingCheckoutBag: (bagInstanceId: string | null) => void;
 }
 
 /** État de session global (token en Keychain, profil persisté en MMKV). */
@@ -24,6 +27,7 @@ export const useSession = create<SessionState>((set) => ({
   user: null,
   mode: 'customer',
   isAuthenticated: false,
+  pendingCheckoutBag: null,
   setSession: (token, user) => {
     prefs.setToken(token);
     prefs.setProfile(user);
@@ -53,6 +57,7 @@ export const useSession = create<SessionState>((set) => ({
     if (token) void unregisterForPush(token);
   },
   setMode: (mode) => set({ mode }),
+  setPendingCheckoutBag: (bagInstanceId) => set({ pendingCheckoutBag: bagInstanceId }),
 }));
 
 // Un 401/403 sur une requête authentifiée (token expiré/révoqué) déconnecte proprement.

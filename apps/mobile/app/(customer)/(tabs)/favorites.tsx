@@ -7,6 +7,7 @@ import { Heart } from 'lucide-react-native';
 import { foodPhoto } from '@baraka/shared';
 import { AppText } from '@/components/ui/AppText';
 import { EmptyState } from '@/components/ui/EmptyState';
+import { PrimaryButton } from '@/components/ui/PrimaryButton';
 import { RatingStars } from '@/components/ui/RatingStars';
 import { FavoriteButton } from '@/components/FavoriteButton';
 import { useFavorites } from '@/hooks/useFavorites';
@@ -16,6 +17,7 @@ import { colors, radii } from '@/lib/theme';
 
 export default function Favorites() {
   const { t } = useTranslation('common');
+  const { t: ta } = useTranslation('auth');
   const router = useRouter();
   const isAuth = useSession((s) => s.isAuthenticated);
   const { items, isLoading } = useFavorites();
@@ -26,7 +28,22 @@ export default function Favorites() {
         <AppText variant="displayXl">{t('nav.favorites')}</AppText>
       </View>
 
-      {isAuth && isLoading ? (
+      {!isAuth ? (
+        /* État invité : CTA connexion (browse-first). */
+        <View style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 20 }}>
+          <EmptyState
+            icon={Heart}
+            title={ta('guest.signInTitle')}
+            subtitle={ta('guest.signInText')}
+          />
+          <View style={{ marginTop: 8 }}>
+            <PrimaryButton
+              label={ta('login.submit')}
+              onPress={() => router.push('/(auth)/login')}
+            />
+          </View>
+        </View>
+      ) : isAuth && isLoading ? (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <ActivityIndicator color={colors.pine} />
         </View>

@@ -10,6 +10,7 @@ import { api } from '@/lib/api';
 import { useSession } from '@/store/session';
 import { AppText } from '@/components/ui/AppText';
 import { EmptyState } from '@/components/ui/EmptyState';
+import { PrimaryButton } from '@/components/ui/PrimaryButton';
 import { OrderCard } from '@/components/OrderCard';
 import { colors } from '@/lib/theme';
 
@@ -17,6 +18,7 @@ type Tab = 'upcoming' | 'history';
 
 export default function Orders() {
   const { t } = useTranslation('orders');
+  const { t: ta } = useTranslation('auth');
   const router = useRouter();
   const isAuth = useSession((s) => s.isAuthenticated);
   const [tab, setTab] = useState<Tab>('upcoming');
@@ -73,7 +75,18 @@ export default function Orders() {
         </View>
       </View>
 
-      {isLoading ? (
+      {!isAuth ? (
+        /* État invité : CTA connexion (browse-first). */
+        <View style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 20 }}>
+          <EmptyState icon={ShoppingBag} title={ta('guest.signInTitle')} />
+          <View style={{ marginTop: 8 }}>
+            <PrimaryButton
+              label={ta('login.submit')}
+              onPress={() => router.push('/(auth)/login')}
+            />
+          </View>
+        </View>
+      ) : isLoading ? (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <ActivityIndicator color={colors.pine} />
         </View>

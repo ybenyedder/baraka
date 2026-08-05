@@ -16,6 +16,7 @@ import {
   type Currency,
 } from '@baraka/shared';
 import { api, mediaUrl } from '@/lib/api';
+import { useSession } from '@/store/session';
 import { AppText } from '@/components/ui/AppText';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { PrimaryButton } from '@/components/ui/PrimaryButton';
@@ -44,6 +45,8 @@ export default function Checkout() {
     imageUrl: string;
   }>();
   const router = useRouter();
+  const isAuthenticated = useSession((s) => s.isAuthenticated);
+  const setPendingCheckoutBag = useSession((s) => s.setPendingCheckoutBag);
   const { t } = useTranslation('orders');
   const { t: tc } = useTranslation('common');
   const { t: td } = useTranslation('discovery');
@@ -105,6 +108,14 @@ export default function Checkout() {
   }, [maxQty]);
 
   async function reserve() {
+    // Browse-first : la réservation nécessite un compte. On mémorise le panier et
+    // redirige vers login ; après connexion, l'utilisateur revient ici automatiquement.
+    if (!isAuthenticated) {
+      setPendingCheckoutBag(String(params.bagInstanceId));
+      Alert.alert(tc('actions.confirm'), t('checkout.loginFirst'));
+      router.push('/(auth)/login');
+      return;
+    }
     setLoading(true);
     try {
       const order = await api.createOrder({

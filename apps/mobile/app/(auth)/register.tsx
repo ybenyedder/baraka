@@ -22,6 +22,8 @@ export default function Register() {
   const { t: tc } = useTranslation('common');
   const router = useRouter();
   const setSession = useSession((s) => s.setSession);
+  const pendingBag = useSession((s) => s.pendingCheckoutBag);
+  const setPendingCheckoutBag = useSession((s) => s.setPendingCheckoutBag);
   const nameRef = useRef<TextInput>(null);
   const emailRef = useRef<TextInput>(null);
   const passwordRef = useRef<TextInput>(null);
@@ -78,7 +80,13 @@ export default function Register() {
       });
       setSession(token, user);
       void registerForPush();
-      router.replace('/(customer)/(tabs)');
+      // Retour au checkout en attente (browse-first), sinon onglets normaux.
+      if (pendingBag) {
+        setPendingCheckoutBag(null);
+        router.replace(`/(customer)/checkout/${pendingBag}`);
+      } else {
+        router.replace('/(customer)/(tabs)');
+      }
     } catch (e) {
       Alert.alert(
         tc('errorTitle', { defaultValue: 'Erreur' }),
