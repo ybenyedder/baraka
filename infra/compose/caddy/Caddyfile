@@ -16,6 +16,19 @@ http://{$DOMAIN} {
 		file_server
 	}
 
+	# API mono-origine : /v1/* routé vers le conteneur API (SSE : pas de buffering).
+	# Next.js ne proxifie plus en prod (rewrites évaluées au build), Caddy le fait.
+	handle /v1/* {
+		reverse_proxy api:3001 {
+			flush_interval -1
+		}
+	}
+
+	# Healthcheck (utile pour le monitoring mono-domaine).
+	handle /healthz {
+		reverse_proxy api:3001
+	}
+
 	handle {
 		reverse_proxy web:3000
 	}

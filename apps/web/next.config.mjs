@@ -14,13 +14,14 @@ const nextConfig = {
     // Autorise l'import de fichiers hors du répertoire de l'app (monorepo).
     externalDir: true,
   },
-  // App mono-origine : le web proxifie l'API et les fichiers uploadés vers le
-  // service interne. Le navigateur n'a besoin QUE de l'origine du web (port 3002),
-  // donc l'app fonctionne derrière n'importe quel tunnel/domaine sans exposer 3003.
+  // App mono-origine : en production, Caddy route /v1/* et /u/* directement vers
+  // le conteneur API (voir Caddyfile). En développement, Next proxifie ces chemins
+  // vers l'API locale. On n'utilise PAS de proxy Next en prod car les rewrites sont
+  // évaluées au build (output: standalone) et ne relisent pas les variables d'env
+  // au runtime — ce qui rendait l'inscription en 500 (proxy vers 3003 inexistant).
   async rewrites() {
-    const api =
-      process.env.INTERNAL_API_URL ??
-      (process.env.NODE_ENV === 'development' ? 'http://127.0.0.1:3001' : 'http://127.0.0.1:3003');
+    if (process.env.NODE_ENV !== 'development') return [];
+    const api = process.env.INTERNAL_API_URL ?? 'http://127.0.0.1:3001';
     return [
       { source: '/v1/:path*', destination: `${api}/v1/:path*` },
       { source: '/u/:path*', destination: `${api}/u/:path*` },
